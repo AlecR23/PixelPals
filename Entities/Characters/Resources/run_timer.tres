@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TimerData" load_steps=2 format=3 uid="uid://bo502tv3go6fd"]
+
+[ext_resource type="Script" uid="uid://dv3niqrst2l36" path="res://Entities/Components/Scripts/timer_data.gd" id="1_loaf5"]
+
+[resource]
+script = ExtResource("1_loaf5")
+interval_max = 4.0
+interval_min = 1.5
+metadata/_custom_type_script = "uid://dv3niqrst2l36"

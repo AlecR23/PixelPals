@@ -1,0 +1,212 @@
+[gd_scene load_steps=19 format=3 uid="uid://duw22x1xq46o4"]
+
+[ext_resource type="Texture2D" uid="uid://3ru2q3dt4wif" path="res://UI/Windows/Sprites/TitleScreen.png" id="1_frj5v"]
+[ext_resource type="Script" uid="uid://5nkf27wy8ku2" path="res://UI/Scripts/title_screen.gd" id="1_i1ewc"]
+[ext_resource type="Texture2D" uid="uid://dmvfc83yuxp58" path="res://UI/Windows/Sprites/start_normal.png" id="3_1lkgl"]
+[ext_resource type="Texture2D" uid="uid://8s2hjbxwjfsa" path="res://UI/Windows/Sprites/start_pressed.png" id="4_i7t4j"]
+[ext_resource type="Texture2D" uid="uid://b15atk5135a7u" path="res://UI/Windows/Sprites/start_hovered.png" id="5_ixmql"]
+[ext_resource type="Script" uid="uid://csytdhplxx1d6" path="res://UI/Scripts/start_button.gd" id="6_1lkgl"]
+
+[sub_resource type="Animation" id="Animation_vn2h1"]
+resource_name = "show_icon"
+step = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.22500001, 0.3, 0.375, 0.45000002, 0.52500004, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9230769),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_icon_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_g5eml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_17dc4"]
+resource_name = "show_title"
+step = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.22500001, 0.3, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.61538464),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_title_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1lkgl"]
+resource_name = "show_start"
+step = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [16, 17, 18]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.30769232),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_start_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_i1ewc"]
+resource_name = "blank"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"begin_title_animation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17dc4"]
+_data = {
+&"RESET": SubResource("Animation_g5eml"),
+&"blank": SubResource("Animation_i1ewc"),
+&"show_icon": SubResource("Animation_vn2h1"),
+&"show_start": SubResource("Animation_1lkgl"),
+&"show_title": SubResource("Animation_17dc4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1ewc"]
+animation = &"blank"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vn2h1"]
+animation = &"show_icon"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g5eml"]
+animation = &"show_start"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_17dc4"]
+animation = &"show_title"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1lkgl"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1lkgl"]
+states/blank/node = SubResource("AnimationNodeAnimation_i1ewc")
+states/blank/position = Vector2(313, 100)
+states/show_icon/node = SubResource("AnimationNodeAnimation_vn2h1")
+states/show_icon/position = Vector2(430, 100)
+states/show_start/node = SubResource("AnimationNodeAnimation_g5eml")
+states/show_start/position = Vector2(709, 100)
+states/show_title/node = SubResource("AnimationNodeAnimation_17dc4")
+states/show_title/position = Vector2(570, 100)
+transitions = ["Start", "blank", SubResource("AnimationNodeStateMachineTransition_1lkgl")]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_i1ewc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_frj5v")
+offset = Vector2(120, 80)
+hframes = 19
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_17dc4")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_1lkgl")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="StartButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 87.0
+offset_top = 110.0
+offset_right = 153.0
+offset_bottom = 124.0
+disabled = true
+texture_normal = ExtResource("3_1lkgl")
+texture_pressed = ExtResource("4_i7t4j")
+texture_hover = ExtResource("5_ixmql")
+script = ExtResource("6_1lkgl")
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]

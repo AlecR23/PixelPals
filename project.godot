@@ -1,0 +1,153 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="PixelPals"
+run/main_scene="uid://duw22x1xq46o4"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="uid://jb3vcn6ykumx"
+
+[autoload]
+
+global_variables="*res://Core/Scripts/global_variables.gd"
+Settings="*res://Core/Scripts/settings.gd"
+
+[display]
+
+window/size/viewport_width=240
+window/size/viewport_height=160
+window/size/resizable=false
+window/size/window_width_override=480
+window/size/window_height_override=320
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[dotnet]
+
+project/assembly_name="PixelPals"
+
+[file_customization]
+
+folder_colors={
+"res://Core/": "red",
+"res://Core/Scripts/": "orange",
+"res://Entities/": "red",
+"res://Entities/Characters/": "orange",
+"res://Entities/Characters/Resources/": "yellow",
+"res://Entities/Characters/Scenes/": "yellow",
+"res://Entities/Characters/Sprites/": "yellow",
+"res://Entities/Components/": "orange",
+"res://Entities/Components/Scenes/": "yellow",
+"res://Entities/Components/Scripts/": "yellow",
+"res://Entities/Grass/": "orange",
+"res://Entities/Grass/Scenes/": "yellow",
+"res://Entities/Grass/Scripts/": "yellow",
+"res://Entities/Grass/Sprites/": "yellow",
+"res://Environments/": "red",
+"res://Environments/Beach/": "orange",
+"res://Environments/FenwayPark/": "orange",
+"res://Environments/FrozenLake/": "orange",
+"res://Environments/Mountain/": "orange",
+"res://Environments/Scripts/": "orange",
+"res://Environments/Snow/": "orange",
+"res://Levels/": "red",
+"res://Logo/": "red",
+"res://Tiles/": "red",
+"res://Tiles/Sprites/": "orange",
+"res://UI/": "red",
+"res://UI/Icons/": "orange",
+"res://UI/Icons/Alec/": "yellow",
+"res://UI/Icons/Beach/": "yellow",
+"res://UI/Icons/Controls/": "yellow",
+"res://UI/Icons/Cross/": "yellow",
+"res://UI/Icons/Dad/": "yellow",
+"res://UI/Icons/Emily/": "yellow",
+"res://UI/Icons/EscButton/": "yellow",
+"res://UI/Icons/FenwayPark/": "yellow",
+"res://UI/Icons/Focus/": "yellow",
+"res://UI/Icons/FrozenLake/": "yellow",
+"res://UI/Icons/HangingEsc/": "yellow",
+"res://UI/Icons/Hannah/": "yellow",
+"res://UI/Icons/KeepFront/": "yellow",
+"res://UI/Icons/Mom/": "yellow",
+"res://UI/Icons/Mountain/": "yellow",
+"res://UI/Icons/RightArrow/": "yellow",
+"res://UI/Icons/WindowSize/": "yellow",
+"res://UI/Scripts/": "orange",
+"res://UI/Windows/": "orange",
+"res://UI/Windows/Sprites/": "yellow"
+}
+
+[input]
+
+move_left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+run={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+emote_1={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":49,"location":0,"echo":false,"script":null)
+]
+}
+emote_2={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
+]
+}
+emote_3={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"key_label":0,"unicode":51,"location":0,"echo":false,"script":null)
+]
+}
+emote_4={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":52,"key_label":0,"unicode":52,"location":0,"echo":false,"script":null)
+]
+}
+face_front={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+pause={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="entity"
+2d_physics/layer_2="ground"
+2d_physics/layer_3="world_bounds"
+2d_physics/layer_4="slippery_floor"
+2d_physics/layer_5="running_entity"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

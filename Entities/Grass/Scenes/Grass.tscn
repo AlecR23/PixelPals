@@ -1,0 +1,136 @@
+[gd_scene load_steps=14 format=3 uid="uid://wmt0h5vn5vxa"]
+
+[ext_resource type="Script" uid="uid://bdy43jq00bxn5" path="res://Entities/Grass/Scripts/grass.gd" id="1_4rqcj"]
+[ext_resource type="Texture2D" uid="uid://dqdd1s0nh53le" path="res://Entities/Grass/Sprites/grass_1.png" id="1_lem7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rqcj"]
+size = Vector2(5, 5)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_syvh5"]
+animation = &"flatten"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7b4uh"]
+animation = &"grow"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6huq"]
+animation = &"grown"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4rqcj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_u6huq"]
+states/flatten/node = SubResource("AnimationNodeAnimation_syvh5")
+states/flatten/position = Vector2(459, 100)
+states/grow/node = SubResource("AnimationNodeAnimation_7b4uh")
+states/grow/position = Vector2(621, 100)
+states/grown/node = SubResource("AnimationNodeAnimation_u6huq")
+states/grown/position = Vector2(319, 100)
+transitions = ["Start", "grown", SubResource("AnimationNodeStateMachineTransition_4rqcj")]
+
+[sub_resource type="Animation" id="Animation_tpjk7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7wu64"]
+resource_name = "flatten"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k1tgm"]
+resource_name = "grow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(2, 0), Vector2i(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_grow_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_b408b"]
+resource_name = "grown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t0n2k"]
+_data = {
+&"RESET": SubResource("Animation_tpjk7"),
+&"flatten": SubResource("Animation_7wu64"),
+&"grow": SubResource("Animation_k1tgm"),
+&"grown": SubResource("Animation_b408b")
+}
+
+[node name="Grass" type="Area2D"]
+script = ExtResource("1_4rqcj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_4rqcj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
+texture = ExtResource("1_lem7n")
+offset = Vector2(0.5, 0.5)
+hframes = 3
+frame = 1
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_u6huq")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t0n2k")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
